@@ -21,6 +21,7 @@
 		F421B22E1836B5370041AC76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421B2071836B5360041AC76 /* Cocoa.framework */; };
 		F421B2361836B5370041AC76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F421B2341836B5370041AC76 /* InfoPlist.strings */; };
 		F421B2381836B5370041AC76 /* InitialTestGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F421B2371836B5370041AC76 /* InitialTestGameTests.m */; };
+		F421B2421836B74E0041AC76 /* PLANE1.png in Resources */ = {isa = PBXBuildFile; fileRef = F421B2411836B74E0041AC76 /* PLANE1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F421B2331836B5370041AC76 /* InitialTestGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InitialTestGameTests-Info.plist"; sourceTree = "<group>"; };
 		F421B2351836B5370041AC76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F421B2371836B5370041AC76 /* InitialTestGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialTestGameTests.m; sourceTree = "<group>"; };
+		F421B2411836B74E0041AC76 /* PLANE1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PLANE1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				F421B2201836B5360041AC76 /* AppDelegate.m */,
 				F421B2221836B5360041AC76 /* AppDelegate.h */,
 				F421B2231836B5370041AC76 /* Spaceship.png */,
+				F421B2411836B74E0041AC76 /* PLANE1.png */,
 				F421B2251836B5370041AC76 /* Images.xcassets */,
 				F421B2101836B5360041AC76 /* Supporting Files */,
 			);
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F421B2421836B74E0041AC76 /* PLANE1.png in Resources */,
 				F421B2241836B5370041AC76 /* Spaceship.png in Resources */,
 				F421B2261836B5370041AC76 /* Images.xcassets in Resources */,
 				F421B2141836B5360041AC76 /* InfoPlist.strings in Resources */,
@@ -471,6 +475,7 @@
 				F421B23D1836B5370041AC76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F421B23E1836B5370041AC76 /* Build configuration list for PBXNativeTarget "InitialTestGameTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +484,7 @@
 				F421B2401836B5370041AC76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

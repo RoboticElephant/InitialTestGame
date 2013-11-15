@@ -9,5 +9,9 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface MyScene : SKScene
+{
+    
+    NSMutableArray *spaceShips;
+}
 
 @end
