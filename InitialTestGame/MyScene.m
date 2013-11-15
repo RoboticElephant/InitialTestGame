@@ -7,6 +7,7 @@
 //
 
 #import "MyScene.h"
+#import "PlayerShip.h"
 
 @implementation MyScene
 
@@ -23,6 +24,7 @@ typedef enum
 NSMutableArray *removeableShips;
 KeyArgs keyArgs;
 BOOL bFireLasers;
+PlayerShip* playerShip;
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -35,18 +37,16 @@ BOOL bFireLasers;
         spaceShips = [[NSMutableArray alloc] init];
         removeableShips = [[NSMutableArray alloc] init];
         
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"PLANE1"];
-        
-        sprite.position = CGPointMake(CGRectGetMidX(self.frame), (self.frame.size.height / 4.0));
-        sprite.scale = 0.5;
-        sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:[sprite size]];
-        sprite.physicsBody.allowsRotation = NO;
+		playerShip = [[PlayerShip alloc] init];
+        playerShip.position = CGPointMake(CGRectGetMidX(self.frame), (self.frame.size.height / 4.0));
+        playerShip.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:[playerShip size]];
+        playerShip.physicsBody.allowsRotation = NO;
         
         //        sprite.physicsBody.dynamic = YES;
         
         self.physicsWorld.gravity = CGVectorMake(0, 0);
-        [spaceShips addObject:sprite];
-        [self addChild:sprite];
+        [spaceShips addObject:playerShip];
+        [self addChild:playerShip];
     }
     return self;
 }
@@ -125,6 +125,12 @@ BOOL bFireLasers;
 	}
 	
 	SKAction* sequence = [SKAction group:listActions];
+	
+	if(bFireLasers)
+	{
+		[playerShip fireLasers];
+		bFireLasers = false;
+	}
 	
 	[[spaceShips objectAtIndex:0] runAction:sequence];
     

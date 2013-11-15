@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1449F47B1836DC3700CC326A /* LaserParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1449F4771836DC3700CC326A /* LaserParticle.sks */; };
+		1449F47C1836DC3700CC326A /* PlayerShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 1449F4791836DC3700CC326A /* PlayerShip.m */; };
+		1449F47D1836DC3700CC326A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1449F47A1836DC3700CC326A /* spark.png */; };
 		F421B2081836B5360041AC76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421B2071836B5360041AC76 /* Cocoa.framework */; };
 		F421B20A1836B5360041AC76 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421B2091836B5360041AC76 /* SpriteKit.framework */; };
 		F421B2141836B5360041AC76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F421B2121836B5360041AC76 /* InfoPlist.strings */; };
@@ -35,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1449F4771836DC3700CC326A /* LaserParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LaserParticle.sks; sourceTree = "<group>"; };
+		1449F4781836DC3700CC326A /* PlayerShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerShip.h; sourceTree = "<group>"; };
+		1449F4791836DC3700CC326A /* PlayerShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerShip.m; sourceTree = "<group>"; };
+		1449F47A1836DC3700CC326A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		F421B2041836B5360041AC76 /* InitialTestGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InitialTestGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421B2071836B5360041AC76 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F421B2091836B5360041AC76 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
@@ -126,6 +133,10 @@
 		F421B20F1836B5360041AC76 /* InitialTestGame */ = {
 			isa = PBXGroup;
 			children = (
+				1449F4771836DC3700CC326A /* LaserParticle.sks */,
+				1449F4781836DC3700CC326A /* PlayerShip.h */,
+				1449F4791836DC3700CC326A /* PlayerShip.m */,
+				1449F47A1836DC3700CC326A /* spark.png */,
 				F421B21B1836B5360041AC76 /* MainMenu.xib */,
 				F421B21D1836B5360041AC76 /* MyScene.m */,
 				F421B21F1836B5360041AC76 /* MyScene.h */,
@@ -245,9 +256,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F421B2421836B74E0041AC76 /* PLANE1.png in Resources */,
+				1449F47B1836DC3700CC326A /* LaserParticle.sks in Resources */,
 				F421B2241836B5370041AC76 /* Spaceship.png in Resources */,
 				F421B2261836B5370041AC76 /* Images.xcassets in Resources */,
 				F421B2141836B5360041AC76 /* InfoPlist.strings in Resources */,
+				1449F47D1836DC3700CC326A /* spark.png in Resources */,
 				F421B21A1836B5360041AC76 /* Credits.rtf in Resources */,
 				F421B21C1836B5360041AC76 /* MainMenu.xib in Resources */,
 			);
@@ -268,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1449F47C1836DC3700CC326A /* PlayerShip.m in Sources */,
 				F421B21E1836B5360041AC76 /* MyScene.m in Sources */,
 				F421B2161836B5360041AC76 /* main.m in Sources */,
 				F421B2211836B5360041AC76 /* AppDelegate.m in Sources */,
