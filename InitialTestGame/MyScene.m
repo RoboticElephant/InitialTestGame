@@ -8,6 +8,8 @@
 
 #import "MyScene.h"
 #import "PlayerShip.h"
+#import "SharedDefs.h"
+#import "EnemyShip.h"
 
 @implementation MyScene
 
@@ -21,10 +23,13 @@ typedef enum
 	kSpace = 1 << 5
 } KeyArgs;
 
+
+
+
 NSMutableArray *removeableShips;
 KeyArgs keyArgs;
 BOOL bFireLasers;
-PlayerShip* playerShip;
+//PlayerShip* playerShip;
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -37,7 +42,7 @@ PlayerShip* playerShip;
         spaceShips = [[NSMutableArray alloc] init];
         removeableShips = [[NSMutableArray alloc] init];
         
-		playerShip = [[PlayerShip alloc] init];
+		playerShip = [[PlayerShip alloc] initWithImageNamed:@"PLANE1"];
         playerShip.position = CGPointMake(CGRectGetMidX(self.frame), (self.frame.size.height / 4.0));
         playerShip.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:[playerShip size]];
         playerShip.physicsBody.allowsRotation = NO;
@@ -45,6 +50,7 @@ PlayerShip* playerShip;
         //        sprite.physicsBody.dynamic = YES;
         
         self.physicsWorld.gravity = CGVectorMake(0, 0);
+		self.physicsWorld.contactDelegate = self;
         [spaceShips addObject:playerShip];
         [self addChild:playerShip];
     }
@@ -56,18 +62,31 @@ PlayerShip* playerShip;
     
     CGPoint location = [theEvent locationInNode:self];
     
+	/*
     SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
     
     sprite.position = location;
     sprite.scale = 0.25;
     sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:[sprite size]];
-    
+	 
+	SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
+	 
+	[sprite runAction:[SKAction repeatActionForever:action]];
+	 
+	[self addChild:sprite];
+	[spaceShips addObject:sprite];
+
+    */
+	
+	EnemyShip* ship = [[EnemyShip alloc] initWithImageNamed:@"Spaceship"];
+	
+	ship.position = location;
     SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
     
-    [sprite runAction:[SKAction repeatActionForever:action]];
+    [ship runAction:[SKAction repeatActionForever:action]];
     
-    [self addChild:sprite];
-    [spaceShips addObject:sprite];
+    [self addChild:ship];
+    [spaceShips addObject:ship];
 }
 
 -(void)keyDown:(NSEvent *)theEvent
@@ -156,6 +175,34 @@ PlayerShip* playerShip;
     }
     
     [removeableShips removeAllObjects];
+}
+
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+	EnemyShip* ship = NULL;
+	SKNode *laser = NULL;
+	
+	//NSLog(@"Collision A: %d, B: %d", )
+	
+	switch(contact.bodyA.categoryBitMask)
+	{
+		case kShipCategory:	ship = (EnemyShip*)contact.bodyA.node; break;
+		case kLaserCategory: laser = contact.bodyA.node; break;
+	}
+	switch(contact.bodyB.categoryBitMask)
+	{
+		case kShipCategory:	ship = (EnemyShip*)contact.bodyB.node; break;
+		case kLaserCategory: laser = contact.bodyB.node; break;
+	}
+	
+	if(ship != NULL && laser != NULL)
+	{
+		//[SKAction ]
+		//[SKAction runAction:[SKAction removeFromParent] onChildWithName:@"laserfire"];
+		[laser removeAllChildren];
+		[laser removeFromParent];
+		[ship selfDestruct];
+	}
 }
 
 @end

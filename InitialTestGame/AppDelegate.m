@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MyScene.h"
+//#import <SpriteKit/SpriteKit.h>
+#import <ExceptionHandling/ExceptionHandling.h>
 
 @implementation AppDelegate
 
@@ -25,10 +27,27 @@
 
     self.skView.showsFPS = YES;
     self.skView.showsNodeCount = YES;
+	
+	//Exception Handling
+	[[NSExceptionHandler defaultExceptionHandler] setExceptionHandlingMask:NSLogAndHandleEveryExceptionMask];
+	[[NSExceptionHandler defaultExceptionHandler] setDelegate:self];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     return YES;
+}
+
+- (BOOL)exceptionHandler:(NSExceptionHandler *)sender shouldLogException:(NSException *)exception mask:(NSUInteger)aMask
+{
+	NSLog(@"Fatal Exception: %@", exception);
+	while(1);
+	return true;
+}
+- (BOOL)exceptionHandler:(NSExceptionHandler *)sender shouldHandleException:(NSException *)exception mask:(NSUInteger)aMask
+{
+	NSLog(@"Fatal Exception: %@", exception);
+	while(1);
+	return true;
 }
 
 @end

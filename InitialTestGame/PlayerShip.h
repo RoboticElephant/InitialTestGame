@@ -10,7 +10,7 @@
 
 @interface PlayerShip : SKSpriteNode
 
--(id)init;
+-(id)initWithImageNamed:(NSString *)name;
 -(void)fireLasers;
 
 @end

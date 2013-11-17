@@ -10,6 +10,9 @@
 		1449F47B1836DC3700CC326A /* LaserParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1449F4771836DC3700CC326A /* LaserParticle.sks */; };
 		1449F47C1836DC3700CC326A /* PlayerShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 1449F4791836DC3700CC326A /* PlayerShip.m */; };
 		1449F47D1836DC3700CC326A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1449F47A1836DC3700CC326A /* spark.png */; };
+		1449F48018382F4300CC326A /* EnemyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 1449F47F18382F4300CC326A /* EnemyShip.m */; };
+		1449F4821838317700CC326A /* ShipExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1449F4811838317700CC326A /* ShipExplosion.sks */; };
+		1449F485183882C500CC326A /* ExceptionHandling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1449F484183882C500CC326A /* ExceptionHandling.framework */; };
 		F421B2081836B5360041AC76 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421B2071836B5360041AC76 /* Cocoa.framework */; };
 		F421B20A1836B5360041AC76 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421B2091836B5360041AC76 /* SpriteKit.framework */; };
 		F421B2141836B5360041AC76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F421B2121836B5360041AC76 /* InfoPlist.strings */; };
@@ -42,6 +45,11 @@
 		1449F4781836DC3700CC326A /* PlayerShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerShip.h; sourceTree = "<group>"; };
 		1449F4791836DC3700CC326A /* PlayerShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerShip.m; sourceTree = "<group>"; };
 		1449F47A1836DC3700CC326A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		1449F47E18382F4300CC326A /* EnemyShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyShip.h; sourceTree = "<group>"; };
+		1449F47F18382F4300CC326A /* EnemyShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyShip.m; sourceTree = "<group>"; };
+		1449F4811838317700CC326A /* ShipExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ShipExplosion.sks; sourceTree = "<group>"; };
+		1449F483183833CA00CC326A /* SharedDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedDefs.h; sourceTree = "<group>"; };
+		1449F484183882C500CC326A /* ExceptionHandling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExceptionHandling.framework; path = System/Library/Frameworks/ExceptionHandling.framework; sourceTree = SDKROOT; };
 		F421B2041836B5360041AC76 /* InitialTestGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InitialTestGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421B2071836B5360041AC76 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F421B2091836B5360041AC76 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
@@ -73,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1449F485183882C500CC326A /* ExceptionHandling.framework in Frameworks */,
 				F421B20A1836B5360041AC76 /* SpriteKit.framework in Frameworks */,
 				F421B2081836B5360041AC76 /* Cocoa.framework in Frameworks */,
 			);
@@ -112,6 +121,7 @@
 		F421B2061836B5360041AC76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1449F484183882C500CC326A /* ExceptionHandling.framework */,
 				F421B2071836B5360041AC76 /* Cocoa.framework */,
 				F421B2091836B5360041AC76 /* SpriteKit.framework */,
 				F421B22C1836B5370041AC76 /* XCTest.framework */,
@@ -137,6 +147,7 @@
 				1449F4781836DC3700CC326A /* PlayerShip.h */,
 				1449F4791836DC3700CC326A /* PlayerShip.m */,
 				1449F47A1836DC3700CC326A /* spark.png */,
+				1449F4811838317700CC326A /* ShipExplosion.sks */,
 				F421B21B1836B5360041AC76 /* MainMenu.xib */,
 				F421B21D1836B5360041AC76 /* MyScene.m */,
 				F421B21F1836B5360041AC76 /* MyScene.h */,
@@ -146,6 +157,9 @@
 				F421B2411836B74E0041AC76 /* PLANE1.png */,
 				F421B2251836B5370041AC76 /* Images.xcassets */,
 				F421B2101836B5360041AC76 /* Supporting Files */,
+				1449F47E18382F4300CC326A /* EnemyShip.h */,
+				1449F47F18382F4300CC326A /* EnemyShip.m */,
+				1449F483183833CA00CC326A /* SharedDefs.h */,
 			);
 			path = InitialTestGame;
 			sourceTree = "<group>";
@@ -255,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1449F4821838317700CC326A /* ShipExplosion.sks in Resources */,
 				F421B2421836B74E0041AC76 /* PLANE1.png in Resources */,
 				1449F47B1836DC3700CC326A /* LaserParticle.sks in Resources */,
 				F421B2241836B5370041AC76 /* Spaceship.png in Resources */,
@@ -282,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1449F47C1836DC3700CC326A /* PlayerShip.m in Sources */,
+				1449F48018382F4300CC326A /* EnemyShip.m in Sources */,
 				F421B21E1836B5360041AC76 /* MyScene.m in Sources */,
 				F421B2161836B5360041AC76 /* main.m in Sources */,
 				F421B2211836B5360041AC76 /* AppDelegate.m in Sources */,

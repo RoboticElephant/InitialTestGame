@@ -7,10 +7,11 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "PlayerShip.h"
 
 @interface MyScene : SKScene
 {
-    
+    PlayerShip* playerShip;
     NSMutableArray *spaceShips;
 }
 

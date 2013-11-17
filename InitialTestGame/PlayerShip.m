@@ -7,16 +7,18 @@
 //
 
 #import "PlayerShip.h"
+#import "SharedDefs.h"
 
 @implementation PlayerShip
 
--(id)init
+-(id)initWithImageNamed:(NSString *)name
 {
 	//self = [super initWithImageNamed:@"Spaceship"];
-	self = [super initWithImageNamed:@"PLANE1"];
+	self = [super initWithImageNamed:name];
 	if(self)
 	{
 		self.scale = 0.5;
+		self.physicsBody.categoryBitMask = kShipCategory;
 	}
 	
 	return self;
@@ -24,9 +26,10 @@
 
 -(void)fireLasers
 {
+	const int RADIUS = 7;
 	SKShapeNode* laser1 = [[SKShapeNode alloc] init];
 	CGMutablePathRef myPath = CGPathCreateMutable();
-	CGPathAddArc(myPath, NULL, 0,0, 7, 0, M_PI*2, YES);
+	CGPathAddArc(myPath, NULL, 0,0, RADIUS, 0, M_PI*2, YES);
 	laser1.path = myPath;
 	
 	laser1.lineWidth = 1.0;
@@ -34,15 +37,21 @@
 	laser1.strokeColor = [SKColor whiteColor];
 	laser1.glowWidth = 0.5;
 	
-	//NSString *laserParticlePath = [[NSBundle mainBundle] pathForResource:@"LaserParticle" ofType:@"sks"];
-	//SKEmitterNode *laserFire = [NSKeyedUnarchiver unarchiveObjectWithFile:laserParticlePath];
-	//[laser1 addChild:laserFire];
+	NSString *laserParticlePath = [[NSBundle mainBundle] pathForResource:@"LaserParticle" ofType:@"sks"];
+	SKEmitterNode *laserFire = [NSKeyedUnarchiver unarchiveObjectWithFile:laserParticlePath];
+	laserFire.name = @"laserfire";
+	[laser1 addChild:laserFire];
 	
 	SKAction* s1 = [SKAction moveByX:0 y:1000 duration:1.0];
-	SKAction* s2 = [SKAction removeFromParent];
+	SKAction* s2 = [SKAction runAction:[SKAction removeFromParent] onChildWithName:@"laserfire"];
+	SKAction* s3 = [SKAction removeFromParent];
 	
-	SKAction* sequence = [SKAction sequence:@[s1, s2]];
+	SKAction* sequence = [SKAction sequence:@[s1, s2, s3]];
 	[laser1 runAction:sequence];
+	
+	laser1.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:RADIUS];
+	laser1.physicsBody.categoryBitMask = kLaserCategory;
+	laser1.physicsBody.contactTestBitMask = kShipCategory;
 
 	//copy to loaser 2
 	SKShapeNode* laser2 = [laser1 copy];
