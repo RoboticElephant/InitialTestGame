@@ -12,7 +12,6 @@
 @interface MyScene : SKScene
 {
     PlayerShip* playerShip;
-    NSMutableArray *spaceShips;
 }
 
 @end

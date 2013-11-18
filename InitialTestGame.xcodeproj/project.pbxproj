@@ -28,6 +28,7 @@
 		F421B2361836B5370041AC76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F421B2341836B5370041AC76 /* InfoPlist.strings */; };
 		F421B2381836B5370041AC76 /* InitialTestGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F421B2371836B5370041AC76 /* InitialTestGameTests.m */; };
 		F421B2421836B74E0041AC76 /* PLANE1.png in Resources */ = {isa = PBXBuildFile; fileRef = F421B2411836B74E0041AC76 /* PLANE1.png */; };
+		F43BB61F1839A252006D80F5 /* TODO List.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F43BB61E1839A252006D80F5 /* TODO List.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		F421B2351836B5370041AC76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F421B2371836B5370041AC76 /* InitialTestGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialTestGameTests.m; sourceTree = "<group>"; };
 		F421B2411836B74E0041AC76 /* PLANE1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PLANE1.png; sourceTree = "<group>"; };
+		F43BB61E1839A252006D80F5 /* TODO List.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "TODO List.rtf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				1449F47E18382F4300CC326A /* EnemyShip.h */,
 				1449F47F18382F4300CC326A /* EnemyShip.m */,
 				1449F483183833CA00CC326A /* SharedDefs.h */,
+				F43BB61E1839A252006D80F5 /* TODO List.rtf */,
 			);
 			path = InitialTestGame;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1449F4821838317700CC326A /* ShipExplosion.sks in Resources */,
+				F43BB61F1839A252006D80F5 /* TODO List.rtf in Resources */,
 				F421B2421836B74E0041AC76 /* PLANE1.png in Resources */,
 				1449F47B1836DC3700CC326A /* LaserParticle.sks in Resources */,
 				F421B2241836B5370041AC76 /* Spaceship.png in Resources */,

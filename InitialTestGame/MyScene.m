@@ -1,4 +1,4 @@
-//
+ //
 //  MyScene.m
 //  InitialTestGame
 //
@@ -23,13 +23,8 @@ typedef enum
 	kSpace = 1 << 5
 } KeyArgs;
 
-
-
-
-NSMutableArray *removeableShips;
 KeyArgs keyArgs;
 BOOL bFireLasers;
-//PlayerShip* playerShip;
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -38,9 +33,6 @@ BOOL bFireLasers;
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
-        
-        spaceShips = [[NSMutableArray alloc] init];
-        removeableShips = [[NSMutableArray alloc] init];
         
 		playerShip = [[PlayerShip alloc] initWithImageNamed:@"PLANE1"];
         playerShip.position = CGPointMake(CGRectGetMidX(self.frame), (self.frame.size.height / 4.0));
@@ -51,7 +43,6 @@ BOOL bFireLasers;
         
         self.physicsWorld.gravity = CGVectorMake(0, 0);
 		self.physicsWorld.contactDelegate = self;
-        [spaceShips addObject:playerShip];
         [self addChild:playerShip];
     }
     return self;
@@ -61,22 +52,6 @@ BOOL bFireLasers;
      /* Called when a mouse click occurs */
     
     CGPoint location = [theEvent locationInNode:self];
-    
-	/*
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-    
-    sprite.position = location;
-    sprite.scale = 0.25;
-    sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:[sprite size]];
-	 
-	SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-	 
-	[sprite runAction:[SKAction repeatActionForever:action]];
-	 
-	[self addChild:sprite];
-	[spaceShips addObject:sprite];
-
-    */
 	
 	EnemyShip* ship = [[EnemyShip alloc] initWithImageNamed:@"Spaceship"];
 	
@@ -86,7 +61,11 @@ BOOL bFireLasers;
     [ship runAction:[SKAction repeatActionForever:action]];
     
     [self addChild:ship];
-    [spaceShips addObject:ship];
+}
+
+-(void)rightMouseDown:(NSEvent *)theEvent
+{
+    /* Called when a right mouse click occurs */
 }
 
 -(void)keyDown:(NSEvent *)theEvent
@@ -117,7 +96,6 @@ BOOL bFireLasers;
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     
-    CGSize screenSize = self.frame.size;
     const int moveSize = 10;
 	
 	NSMutableArray* listActions = [NSMutableArray array];  //autoreleased?
@@ -151,30 +129,8 @@ BOOL bFireLasers;
 		bFireLasers = false;
 	}
 	
-	[[spaceShips objectAtIndex:0] runAction:sequence];
+	[playerShip runAction:sequence];
     
-    for(SKSpriteNode *inSpace in spaceShips)
-    {
-        if ([spaceShips indexOfObject:inSpace] != 0)
-        {
-            if(inSpace.position.y <= screenSize.height)
-            {
-                [inSpace runAction:[SKAction moveByX:0.0 y: 5.0 duration:0.5]];
-                
-            } else
-            {
-                [inSpace removeFromParent];
-                [removeableShips addObject:[NSNumber numberWithInteger:[spaceShips indexOfObject:inSpace]]];
-            }
-        }
-    }
-    
-    for(NSNumber *numb in removeableShips)
-    {
-        [spaceShips removeObjectAtIndex:[numb integerValue]];
-    }
-    
-    [removeableShips removeAllObjects];
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact

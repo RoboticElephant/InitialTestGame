@@ -9,8 +9,11 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface EnemyShip : SKSpriteNode
+{
+    bool bIsDestroyed;
+}
 
--(id)initWithImageNamed:(NSString *)name;
+//-(id)initWithImageNamed:(NSString *)name;
 -(void)selfDestruct;
 
 @end

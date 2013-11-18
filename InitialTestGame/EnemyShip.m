@@ -12,8 +12,6 @@
 
 @implementation EnemyShip
 
-bool bIsDestroyed;
-
 -(id)initWithImageNamed:(NSString *)name
 {
 	self = [super initWithImageNamed:name];
